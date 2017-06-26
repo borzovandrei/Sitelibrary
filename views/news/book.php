@@ -35,16 +35,27 @@
         <h4>Вы можете оставить комментарий,
             <span>
 				<?php
-                echo $_SESSION['session_username'];
+                if($_SESSION){
+                    echo $_SESSION['session_username'];
                 ?>
-            </span>
-        </h4>
-
-        <form action="/library/<?php echo $id ?>" id="addbookform" method="post"name="addbookform">
+                <form action="/library/<?php echo $id ?>" id="addbookform" method="post"name="addbookform">
             <p><label for="comment">Коментарий<br>
                     <textarea class="input" id="comment" name="comment"size="1000" cols="20" rows="5" type="text" value=""></textarea></p>
             <p class="submit"><input class="button" id="add_comment" name= "add_comment" type="submit" value="Добавить"></p>
 
         </form>
+                    <p><a href="/logout">Сменить пользователя</a></p>
+                    <?php
+
+                }
+                else {echo "Авторизируйтесь";
+                ?> <p><a href="/logout">Выполнить вход</a></p> <?php
+                }
+                ?>
+            </span>
+
+        </h4>
+
+
     </div>
 </div>

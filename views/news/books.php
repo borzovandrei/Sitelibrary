@@ -1,5 +1,7 @@
-
 <body>
+
+<script src="/template/script/up.js"></script>
+
 
 <div class="big_container mregister">
     <div id="login">
@@ -14,16 +16,13 @@
 
         <p><label for="year">Год <?php echo $bookItem['year'] ?>
 
-        <p><label for="about">Описание<br> <?php echo $bookItem['about'] ?><br><br>
 
-                <input type="button" value="Подробнее"
-                       onclick='location.href="/library/<?php echo $bookItem['id']; ?>"  '>
-                <?php endforeach; ?>
+        <input type="button" value="Подробнее" onclick='location.href="/library/<?php echo $bookItem['id']; ?>"'>
 
+        <?php endforeach; ?>
 
 
-
-    </div>
+</div>
 </div>
 
 <?php if (!empty($addbook)) {
@@ -45,5 +44,7 @@
                 <input class="button" id="add_book" name="add_book" type="submit" value="Добавить"></p>
 
         </form>
+        <a href="#top">наверх</a>
+
     </div>
 </div>

@@ -88,7 +88,7 @@ class Library
     {
         $db = Db::getConnection();
         $booklist = array();
-        $result = $db->query('SELECT id, name, year, autor, about FROM books ORDER BY year /* LIMIT 3 */');
+        $result = $db->query('SELECT id, name, year, autor, about FROM books ORDER BY year  LIMIT 30');
         $i = 0;
         while ($row = $result->fetch()) {
             $booklist[$i]['id'] = $row['id'];

@@ -7,15 +7,15 @@ class LibraryController
     public function actionIndex()
     {
         session_start();
+
         //добавляет в базу данных и делает сообщение
         $addbook = Library::Addbook();
-
         $booklist = Library::GetNewsList();
 
         require_once(ROOT . '/views/includes/header.php');
+
         require_once(ROOT . '/views/news/books.php');
         require_once(ROOT . '/views/includes/footer.php');
-
 
 
         return true;
