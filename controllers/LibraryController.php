@@ -2,12 +2,11 @@
 
 include_once ROOT . '/models/Library.php';
 
-
-
 class LibraryController
 {
     public function actionIndex()
     {
+        session_start();
         //добавляет в базу данных и делает сообщение
         $addbook = Library::Addbook();
 
@@ -26,7 +25,7 @@ class LibraryController
     public function actionView($id)
     {
         if ($id) {
-
+            session_start();
             //получает список книг
             $bookItem = Library::GetNewsItemById($id);
             $addcomment = Library::AddComment($id);

@@ -1,5 +1,5 @@
 <?php
-
+//namespace lib\login;
 
 class Login
 {
@@ -68,8 +68,8 @@ public static function Reg()
             $password = htmlspecialchars($_POST['password']);
 
             $query = $db->query("SELECT * FROM usertbl WHERE username='" . $username . "'");
-            $numrows = mysql_num_rows($query);
-
+//            $numrows = mysql_num_rows($query);
+            $numrows = $query->rowCount();
 
             if ($numrows == 0) {
                 $sql = "INSERT INTO usertbl (full_name, email, username, password) VALUES('$full_name','$email', '$username', '$password')";

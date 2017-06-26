@@ -1,5 +1,4 @@
 <?php
-
     //FRONT CONTROLLER
 
     //общие настройки
@@ -13,7 +12,8 @@
         require_once (ROOT.'/components/Db.php');
 
 
-    //соединение с бд
+    //composer
+     //   require ROOT.'/vendor/autoload.php';
 
     //вызов router
         $router=new Router();

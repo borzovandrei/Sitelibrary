@@ -7,9 +7,6 @@ class LoginController
     {
 
 
-        $log = Login::Log();
-        echo $log;
-
 
         require_once(ROOT . '/views/includes/header.php');
         require_once(ROOT . '/views/login/login.php');
