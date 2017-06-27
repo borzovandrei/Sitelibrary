@@ -1,5 +1,6 @@
 <?php
 include_once ROOT . '/models/Login.php';
+include_once(ROOT . '/controllers/Shablon.php');
 
 class LoginController
 {
@@ -8,9 +9,14 @@ class LoginController
 
         $log = Login::Log();
 
-        require_once(ROOT . '/views/includes/header.php');
-        require_once(ROOT . '/views/login/login.php');
-        require_once(ROOT . '/views/includes/footer.php');
+        $content = new Shablon();
+
+        $content->getContent('login', array(
+            '{page_title}' => 'PHP/MySQL',
+            '{name}' => 'Авторизация',
+            '{username}'=>'Имя попльзователя',
+            '{password}'=> 'Пароль',
+        ));
 
 
         return true;
@@ -19,11 +25,13 @@ class LoginController
     public function actionReg()
     {
         $reg = Login::Reg();
+        $content = new Shablon();
 
-        require_once(ROOT . '/views/includes/header.php');
-        require_once(ROOT . '/views/login/register.php');
-        require_once(ROOT . '/views/includes/footer.php');
 
+        $content->getContent('register', array(
+            '{page_title}' => 'PHP/MySQL',
+            '{name}' => 'Регистрация'
+        ));
 
         return true;
     }

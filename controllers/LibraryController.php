@@ -13,7 +13,6 @@ class LibraryController
         $booklist = Library::GetNewsList();
 
         require_once(ROOT . '/views/includes/header.php');
-
         require_once(ROOT . '/views/news/books.php');
         require_once(ROOT . '/views/includes/footer.php');
 
