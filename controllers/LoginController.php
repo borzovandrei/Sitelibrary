@@ -11,12 +11,21 @@ class LoginController
 
         $content = new Shablon();
 
-        $content->getContent('login', array(
-            '{page_title}' => 'PHP/MySQL',
-            '{name}' => 'Авторизация',
-            '{username}'=>'Имя попльзователя',
-            '{password}'=> 'Пароль',
-        ));
+        $data = [
+            'page_title' => 'PHP/MySQL',
+            'name' => 'Авторизация',
+            'username' => 'Имя попльзователя',
+            'password' => 'Пароль'
+
+        ];
+
+        $main = [
+            'head' => $content->getContent('shablons/includes/header', $data, true),
+            'body' => $content->getContent('shablons/login', $data, true),
+            'footer' => $content->getContent('shablons/includes/footer', $data, true),
+        ];
+
+        $content->getContent('main', $main);
 
 
         return true;
@@ -28,10 +37,20 @@ class LoginController
         $content = new Shablon();
 
 
-        $content->getContent('register', array(
-            '{page_title}' => 'PHP/MySQL',
-            '{name}' => 'Регистрация'
-        ));
+        $data = [
+            'page_title' => 'PHP/MySQL',
+            'name' => 'Регистрация'
+
+        ];
+
+        $main = [
+            'head' => $content->getContent('shablons/includes/header', $data, true),
+            'body' => $content->getContent('shablons/register', $data, true),
+            'footer' => $content->getContent('shablons/includes/footer', $data, true),
+        ];
+
+        $content->getContent('main', $main);
+
 
         return true;
     }

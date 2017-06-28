@@ -9,7 +9,7 @@
         <h1>Имеющиеся книги</h1>
         <p><a  href="/login">Назад</a></p>
 
-        <?php foreach ($booklist as $bookItem) : ?>
+       <?php foreach ($booklist as $bookItem) : ?>
         <p><label for="name">Название <?php echo $bookItem['name'] ?>
 
         <p><label for="autor">Автор <?php echo $bookItem['autor'] ?>

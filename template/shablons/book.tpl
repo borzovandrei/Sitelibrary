@@ -1,19 +1,20 @@
+
 <body>
 
 <div class="big_container mregister">
     <div id="login">
 
-        <h1>Имеющиеся книги</h1>
+        <h1><?php echo $bookItem['name'] ?></h1>
         <p><a href="/library">Назад</a></p>
 
 
-        <p><label for="name">Название <?php echo $bookItem['name'] ?>
+        <p><label for="name"><?php echo "Название: ".$bookItem['name'] ?>
 
-        <p><label for="autor">Автор <?php echo $bookItem['autor'] ?>
+        <p><label for="autor"><?php echo "Автор: ".$bookItem['autor'] ?>
 
-        <p><label for="year">Год <?php echo $bookItem['year'] ?>
+        <p><label for="year"><?php echo "Год: ".$bookItem['year'] ?>
 
-        <p><label for="about">Описание<br> <?php echo $bookItem['about'] ?><br><br>
+        <p><label for="about"><?php echo "Описание :".$bookItem['about'] ?><br><br>
 
                 <input type="button" value="Назад" onclick='location.href="/library/"  '>
 
@@ -27,7 +28,6 @@
     </div>
 </div>
 
-<?php if (!empty($addcomment)) {echo "<p class=\"error\">" . "Внимание: ". $addcomment . "</p>";} ?>
 
 <div class="container mregister">
     <div id="login">

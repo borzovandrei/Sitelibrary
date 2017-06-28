@@ -1,6 +1,7 @@
 <?php
 
 include_once ROOT . '/models/Library.php';
+include_once(ROOT . '/controllers/Shablon.php');
 
 class LibraryController
 {
@@ -12,11 +13,24 @@ class LibraryController
         $addbook = Library::Addbook();
         $booklist = Library::GetNewsList();
 
-        require_once(ROOT . '/views/includes/header.php');
-        require_once(ROOT . '/views/news/books.php');
-        require_once(ROOT . '/views/includes/footer.php');
+        $content = new Shablon();
 
 
+        $data = [
+            'booklist'=>$booklist,
+            'name'=>'Имеющиеся книги',
+            'one'=>'Название',
+            'two'=>'Автор',
+            'tree'=>'Год',
+        ];
+
+        $main = [
+            'head' => $content->getContent('shablons/includes/header', $data, true),
+            'body' => $content->getContent('shablons/library', $data, true),
+            'footer' => $content->getContent('shablons/includes/footer', $data, true),
+        ];
+
+        $content->getContent('main', $main);
         return true;
 
     }
@@ -29,13 +43,22 @@ class LibraryController
             $bookItem = Library::GetNewsItemById($id);
             $addcomment = Library::AddComment($id);
 
+            $content = new Shablon();
+            $data = [
+                'bookItem'=>$bookItem,
+                'id'=>$id
+            ];
 
-            require_once(ROOT . '/views/includes/header.php');
-            require_once(ROOT . '/views/news/book.php');
-            require_once(ROOT . '/views/includes/footer.php');
+        $main = [
+            'head' => $content->getContent('shablons/includes/header', $data, true),
+            'body' => $content->getContent('shablons/book', $data, true),
+            'footer' => $content->getContent('shablons/includes/footer', $data, true),
+        ];
 
 
         }
+
+        $content->getContent('main', $main);
         return true;
 
     }

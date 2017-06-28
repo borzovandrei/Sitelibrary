@@ -1,8 +1,8 @@
-{include=header.tpl}
+
 <body>
 <div class="container mregister">
     <div id="login">
-        <h1>{name}</h1>
+        <h1><?=$name?></h1>
         <form action="register" id="registerform" method="post" name="registerform">
             <p><label for="user_login">Полное имя<br>
                     <input class="input" id="full_name" name="full_name" size="32" type="text" value=""></label></p>
@@ -18,4 +18,3 @@
         </form>
     </div>
 </div>
-{include=footer.tpl}
