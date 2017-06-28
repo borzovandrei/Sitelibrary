@@ -10,7 +10,8 @@ class Shablon
 
     function parse($tpl)
     {
-        $this->parse_tpl = file_get_contents($tpl);
+        $tpldir=ROOT.'/template/shablons/includes/'.$tpl;
+        $this->parse_tpl = file_get_contents($tpldir);
         foreach ($this->vars as $k => $v) {
             $this->parse_tpl = str_replace($k, $v, $this->parse_tpl);
         }
@@ -25,7 +26,7 @@ class Shablon
         $this->content = file_get_contents($tpldir);
 
 
-        preg_match_all("/\{include\=(.*?[.tpl])\}/is", $this->content, $mas);
+        preg_match_all("/\\{include\\=(.*?[.tpl])\\}/is", $this->content, $mas);
         foreach ($mas[0] as $k => $v) {
             $this->content = str_replace($mas[0][$k], $this->parse($mas[1][$k]), $this->content);
         }

@@ -1,7 +1,5 @@
-{include = header.tpl}
-
+{include=header.tpl}
 <body>
-
 <div class="container mlogin">
     <div id="login">
         <h1>{name}</h1>
@@ -18,12 +16,4 @@
     </div>
 </div>
 </body>
-<footer>
-    <a>© 2017 </a>
-    <a href="http://www.internet-technologies.ru/articles/article_2077.html"> Информация</a>
-</footer>
-</body>
-</html>
-
-
-</html>
+{include=footer.tpl}
