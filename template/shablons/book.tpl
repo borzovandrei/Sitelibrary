@@ -28,6 +28,7 @@
     </div>
 </div>
 
+<?php if (!empty($addcomment)) {echo "<p class=\"error\">" . "Внимание: ". $addcomment . "</p>";} ?>
 
 <div class="container mregister">
     <div id="login">

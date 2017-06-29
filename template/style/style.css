@@ -138,6 +138,20 @@ span {
 	cursor: pointer;
 }
 
+.buttonabout{
+    border: solid 1px #da7c0c;
+    background: #f78d1d;
+    background: -webkit-gradient(linear, left top, left bottom, from(#faa51a), to(#f47a20));
+    background: -moz-linear-gradient(top,  #faa51a,  #f47a20);
+    filter:  progid:DXImageTransform.Microsoft.gradient(startColorstr='#faa51a', endColorstr='#f47a20');
+    color: #fff;
+    padding: 7px 12px;
+    -webkit-border-radius:4px;
+    -moz-border-radius:4px;
+    border-radius:4px;
+    float: inherit;
+    cursor: pointer;
+}
 
 .button:hover{
 	background: #f47c20;

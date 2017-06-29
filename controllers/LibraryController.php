@@ -17,11 +17,15 @@ class LibraryController
 
 
         $data = [
+            'addbook'=>$addbook,
             'booklist'=>$booklist,
-            'name'=>'Имеющиеся книги',
-            'one'=>'Название',
-            'two'=>'Автор',
-            'tree'=>'Год',
+            'title'=>'Имеющиеся книги',
+            'newbook'=>'Добавить книгу',
+            'name'=>'Название',
+            'autor'=>'Автор',
+            'year'=>'Год',
+            'about'=>'Описание',
+            'up'=>'Наверх',
         ];
 
         $main = [
@@ -45,6 +49,7 @@ class LibraryController
 
             $content = new Shablon();
             $data = [
+                'addcomment'=> $addcomment,
                 'bookItem'=>$bookItem,
                 'id'=>$id
             ];

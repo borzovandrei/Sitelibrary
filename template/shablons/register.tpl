@@ -1,4 +1,7 @@
-
+<?php
+if (!empty($reg)) {
+    echo "<p class=\"error\">" . "Внимание: " . $reg . "</p>";}
+?>
 <body>
 <div class="container mregister">
     <div id="login">

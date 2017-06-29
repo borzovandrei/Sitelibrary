@@ -4,35 +4,45 @@ class Library
 //добавить книгу
     public static function Addbook()
     {
+
+
+//$id=1;
+//        $db = Db::getConnection();
+//        $strSQL = "SELECT * FROM books WHERE id = :id  "; //запрос на книгу по id
+//        $prep = $db->prepare($strSQL);                    //Подготавливает запрос к выполнению и возвращает ассоциированный с этим запросом объект
+//        $prep->bindParam('id', $id, PDO::PARAM_INT);      //Привязывает параметр запроса к переменной
+//        $res = $prep->execute();
+//
+//        $book = $prep->fetchObject();
+//
+//        $strSQL = "SELECT * FROM comments WHERE book = '".$book->name."'"." ORDER BY date ";
+//
+//        $rs = $db->query($strSQL);
+//        var_dump($rs);
+//        while($row = $rs->fetch()){
+//            echo "Пользователь: " . $row['user']."</br>" ;
+//            echo "Дата: " . $row['date']."</br>" ;
+//            echo "Комментарий: " . $row['comment'] ."</br></br>";
+//        }
+//        return $res;
+//
+
+
         $db = Db::getConnection();
         $message='';
 
         if (isset($_POST["add_book"])) {
             if (!empty($_POST['name']) && !empty($_POST['autor']) && !empty($_POST['year'])) {
-                $name = htmlspecialchars($_POST['name']);
-                $autor = htmlspecialchars($_POST['autor']);
-                $year = htmlspecialchars($_POST['year']);
-                $about = htmlspecialchars($_POST['about']);
-                $query=$db->query("SELECT * FROM books WHERE username='".$_POST['name']."'");
+                $name = $_POST['name'];
+                $autor = $_POST['autor'];
+                $year = $_POST['year'];
+                $about = $_POST['about'];
+                $strSQL ="SELECT * FROM books WHERE name = :n";
+                $prep = $db->prepare($strSQL);
+                $prep->bindParam('n', $name, PDO::PARAM_STR , 32);
+                $res = $prep->execute();
 
-
-//                $query->setFetchMode(PDO::FETCH_ASSOC);
-//                $res = $query->fetch();
-//
-//                $db->prepare('SELECT * FROM books WHERE name = ?' );
-//                $db->exec($name);
-//                $query = $db->fetch(PDO::FETCH_ASSOC);
-//
-//                $query = $db->exec(PDO::FETCH_ASSOC);
-//                var_dump($query);
-//
-//
-//                printf("query= \n", $query);
-//                printf("numrows= \n", $numrows);
-//                printf($_POST['autor']);
-
-
-                $numrows = $query->rowCount();
+                $numrows = $prep->rowCount();
                 if ($numrows == 0) {
                     $sql = "INSERT INTO books (name, autor, year, about) VALUES('$name','$autor', '$year', '$about')";
                     $result = $db->query($sql);
